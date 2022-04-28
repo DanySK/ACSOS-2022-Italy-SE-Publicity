@@ -24,11 +24,11 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="2.8094262"
-     inkscape:cx="58.552882"
-     inkscape:cy="185.09118"
-     inkscape:window-width="3840"
-     inkscape:window-height="2084"
-     inkscape:window-x="1200"
+     inkscape:cx="160.17506"
+     inkscape:cy="179.57404"
+     inkscape:window-width="1920"
+     inkscape:window-height="1126"
+     inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1"
@@ -619,9 +619,9 @@
        style="font-size:46.6667px;line-height:0.95;font-family:Futura;-inkscape-font-specification:Futura;white-space:pre;shape-inside:url(#rect28905)"><tspan
          x="0"
          y="34.289086"
-         id="tspan323445"><tspan
+         id="tspan8011"><tspan
            style="font-family:'Futura BdCn BT';-inkscape-font-specification:'Futura BdCn BT'"
-           id="tspan323443">Name Surname</tspan></tspan></text>
+           id="tspan8009">Name Surname</tspan></tspan></text>
     <text
        xml:space="preserve"
        transform="scale(0.26458333)"
@@ -653,7 +653,7 @@
        y="0"><tspan
          x="293.33906"
          y="105.05661"
-         id="tspan323447">ROLE</tspan></text>
+         id="tspan8013">ROLE</tspan></text>
     <g
        id="g323283"
        transform="rotate(180,44.550661,82.449339)">
@@ -672,27 +672,27 @@
          style="font-size:21.3333px;line-height:0.95;font-family:Futura;-inkscape-font-specification:Futura;white-space:pre;shape-inside:url(#rect28905-4-7)"><tspan
            x="0"
            y="16.210645"
-           id="tspan323451"><tspan
+           id="tspan8017"><tspan
              style="font-family:monospace;-inkscape-font-specification:monospace"
-             id="tspan323449">Coffee Break   # 000/100
+             id="tspan8015">Coffee break   # 000/100
 </tspan></tspan><tspan
            x="0"
            y="37.012948"
-           id="tspan323455"><tspan
+           id="tspan8021"><tspan
              style="font-family:monospace;-inkscape-font-specification:monospace"
-             id="tspan323453">Bus seat       # 000/54
+             id="tspan8019">Bus seat       # 000/54
 </tspan></tspan><tspan
            x="0"
            y="57.815251"
-           id="tspan323459"><tspan
+           id="tspan8025"><tspan
              style="font-family:monospace;-inkscape-font-specification:monospace"
-             id="tspan323457">Kart driver    # 000/20
+             id="tspan8023">Kart driver    # 000/20
 </tspan></tspan><tspan
            x="0"
            y="78.617555"
-           id="tspan323463"><tspan
+           id="tspan8029"><tspan
              style="font-family:monospace;-inkscape-font-specification:monospace"
-             id="tspan323461">Dinner         # 000/90</tspan></tspan></text>
+             id="tspan8027">Dinner         # 000/90</tspan></tspan></text>
       <text
          xml:space="preserve"
          transform="matrix(0.26458333,0,0,0.26458333,0.52916682,56.058332)"
@@ -700,9 +700,9 @@
          style="font-size:46.6667px;line-height:0.95;font-family:Futura;-inkscape-font-specification:Futura;white-space:pre;shape-inside:url(#rect28905-4)"><tspan
            x="0"
            y="34.289086"
-           id="tspan323467"><tspan
+           id="tspan8033"><tspan
              style="font-family:'Futura BdCn BT';-inkscape-font-specification:'Futura BdCn BT'"
-             id="tspan323465">Name Surname</tspan></tspan></text>
+             id="tspan8031">Name Surname</tspan></tspan></text>
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.70278px;line-height:0;font-family:Audiowide;-inkscape-font-specification:Audiowide;letter-spacing:-0.465667px;word-spacing:0px;fill:#b82159;fill-opacity:1;stroke:#1d050e;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
