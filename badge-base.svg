@@ -3,8 +3,8 @@
 
 <svg
    width="89mm"
-   height="55mm"
-   viewBox="0 0 89 55"
+   height="110mm"
+   viewBox="0 0 89 110"
    version="1.1"
    id="svg5"
    inkscape:version="1.1.2 (0a00cf5339, 2022-02-04, custom)"
@@ -23,14 +23,14 @@
      inkscape:pagecheckerboard="0"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="2.8094262"
-     inkscape:cx="160.17506"
-     inkscape:cy="179.57404"
-     inkscape:window-width="1920"
-     inkscape:window-height="1126"
+     inkscape:zoom="2.0242973"
+     inkscape:cx="194.14144"
+     inkscape:cy="345.05801"
+     inkscape:window-width="1423"
+     inkscape:window-height="1863"
      inkscape:window-x="0"
      inkscape:window-y="0"
-     inkscape:window-maximized="1"
+     inkscape:window-maximized="0"
      inkscape:current-layer="layer1"
      inkscape:snap-bbox="true"
      inkscape:bbox-paths="true"
@@ -44,33 +44,33 @@
      id="defs2">
     <rect
        x="0"
-       y="89.720258"
+       y="89.720261"
        width="330.82974"
-       height="21.751943"
+       height="21.751944"
        id="rect206701" />
     <rect
        x="3.9719038"
-       y="82.644297"
-       width="179.56066"
-       height="29.862157"
+       y="82.644295"
+       width="179.56065"
+       height="29.862158"
        id="rect161268" />
     <rect
-       x="8.485694"
-       y="83.348553"
-       width="322.47155"
-       height="56.169089"
+       x="8.4856939"
+       y="83.348557"
+       width="322.47156"
+       height="56.16909"
        id="rect113337" />
     <rect
        x="0"
-       y="82.152021"
-       width="263.52384"
-       height="52.554713"
+       y="82.152023"
+       width="263.52383"
+       height="52.554714"
        id="rect84702" />
     <rect
        x="0"
        y="0"
-       width="332.10099"
-       height="92.395173"
+       width="332.10098"
+       height="92.395172"
        id="rect28905" />
     <clipPath
        clipPathUnits="userSpaceOnUse"
@@ -107,8 +107,8 @@
     <rect
        x="0"
        y="0"
-       width="336.0042"
-       height="87.431644"
+       width="336.00421"
+       height="87.431641"
        id="rect28905-4-7" />
   </defs>
   <g
@@ -117,16 +117,24 @@
      id="layer1">
     <rect
        style="fill:#ffffff;fill-opacity:1;stroke:#1d050e;stroke-width:0.101322;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+       id="rect202833-3"
+       width="88.898682"
+       height="54.898678"
+       x="0.10131919"
+       y="55"
+       ry="0" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#1d050e;stroke-width:0.101322;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
        id="rect202833"
        width="88.898682"
        height="54.898678"
-       x="0.05066108"
-       y="0.05066108"
+       x="0.10132018"
+       y="3.4543561e-07"
        ry="0" />
     <g
        id="g27260"
        clip-path="url(#clipPath27264)"
-       transform="matrix(0.01412459,0,0,-0.01412459,0,55)">
+       transform="matrix(0.01353456,0,0,-0.01353456,2.1166667,54.470833)">
       <path
          d="m 1121.95,0 c -0.76,0 -1.54,0.0703125 -2.32,0.25 -5.99,1.28125 -9.81,7.17188 -8.53,13.1484 L 1350.29,1136.18 c 1.27,5.99 7.13,9.86 13.16,8.52 5.99,-1.27 9.81,-7.16 8.54,-13.15 L 1132.79,8.78906 C 1131.68,3.57813 1127.07,0 1121.95,0"
          style="fill:#a7a5a6;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -218,7 +226,7 @@
     </g>
     <g
        id="g1110"
-       transform="matrix(0.02783458,0,0,-0.02783458,64.696682,58.817039)">
+       transform="matrix(0.02549441,0,0,-0.02549441,64.623294,57.447103)">
       <g
          id="g10"
          transform="translate(543.9247,232.4095)">
@@ -602,7 +610,7 @@
     </g>
     <g
        id="g919"
-       transform="matrix(0.01479452,0,0,0.01479452,54.729607,38.827473)">
+       transform="matrix(0.01342626,0,0,0.01342626,54.923426,39.131275)">
       <path
          style="fill:#000000"
          id="path2856"
@@ -616,34 +624,34 @@
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,0.52916667,1.0583331)"
        id="text28903"
-       style="font-size:46.6667px;line-height:0.95;font-family:Futura;-inkscape-font-specification:Futura;white-space:pre;shape-inside:url(#rect28905)"><tspan
+       style="font-size:45.3333px;line-height:0.95;font-family:Futura;-inkscape-font-specification:Futura;white-space:pre;shape-inside:url(#rect28905)"><tspan
          x="0"
-         y="34.289086"
-         id="tspan8011"><tspan
+         y="33.309351"
+         id="tspan1281"><tspan
            style="font-family:'Futura BdCn BT';-inkscape-font-specification:'Futura BdCn BT'"
-           id="tspan8009">Name Surname</tspan></tspan></text>
+           id="tspan1279">Name Surname</tspan></tspan></text>
     <text
        xml:space="preserve"
        transform="scale(0.26458333)"
        id="text84700"
-       style="line-height:1.25;font-family:Futura;font-size:40px;-inkscape-font-specification:Futura;white-space:pre;shape-inside:url(#rect84702)" />
+       style="font-size:40px;line-height:1.25;font-family:Futura;-inkscape-font-specification:Futura;white-space:pre;shape-inside:url(#rect84702)" />
     <text
        xml:space="preserve"
        transform="scale(0.26458333)"
        id="text113335"
-       style="line-height:1.25;font-family:Futura;font-size:40px;-inkscape-font-specification:Futura;white-space:pre;shape-inside:url(#rect113337)" />
+       style="font-size:40px;line-height:1.25;font-family:Futura;-inkscape-font-specification:Futura;white-space:pre;shape-inside:url(#rect113337)" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.66591px;line-height:0;font-family:Audiowide;-inkscape-font-specification:Audiowide;letter-spacing:-0.867833px;word-spacing:0px;fill:#b82159;fill-opacity:1;stroke:#1d050e;stroke-width:0.179;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       x="-0.13098562"
-       y="36.549538"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.51067px;line-height:0;font-family:Audiowide;-inkscape-font-specification:Audiowide;letter-spacing:-0.852287px;word-spacing:0px;fill:#b82159;fill-opacity:1;stroke:#1d050e;stroke-width:0.175794;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       x="0.96913218"
+       y="36.437778"
        id="text13226"
        transform="scale(0.96619991,1.0349825)"><tspan
          sodipodi:role="line"
          id="tspan13224"
-         x="-0.13098562"
-         y="36.549538"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.66591px;font-family:Audiowide;-inkscape-font-specification:Audiowide;fill:#b82159;fill-opacity:1;stroke:#1d050e;stroke-width:0.179;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">ACSOS 2022 - IT / SE</tspan></text>
+         x="0.96913218"
+         y="36.437778"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.51067px;font-family:Audiowide;-inkscape-font-specification:Audiowide;fill:#b82159;fill-opacity:1;stroke:#1d050e;stroke-width:0.175794;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">ACSOS 2022 - IT / SE</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,1.0138148,1.904582)"
@@ -653,7 +661,7 @@
        y="0"><tspan
          x="293.33906"
          y="105.05661"
-         id="tspan8013">ROLE</tspan></text>
+         id="tspan1283">ROLE</tspan></text>
     <g
        id="g323283"
        transform="rotate(180,44.550661,82.449339)">
@@ -672,37 +680,37 @@
          style="font-size:21.3333px;line-height:0.95;font-family:Futura;-inkscape-font-specification:Futura;white-space:pre;shape-inside:url(#rect28905-4-7)"><tspan
            x="0"
            y="16.210645"
-           id="tspan8017"><tspan
+           id="tspan1287"><tspan
              style="font-family:monospace;-inkscape-font-specification:monospace"
-             id="tspan8015">Coffee break   # 000/100
+             id="tspan1285">Coffee break   # 000/100
 </tspan></tspan><tspan
            x="0"
            y="37.012948"
-           id="tspan8021"><tspan
+           id="tspan1291"><tspan
              style="font-family:monospace;-inkscape-font-specification:monospace"
-             id="tspan8019">Bus seat       # 000/54
+             id="tspan1289">Bus seat       # 000/54
 </tspan></tspan><tspan
            x="0"
            y="57.815251"
-           id="tspan8025"><tspan
+           id="tspan1295"><tspan
              style="font-family:monospace;-inkscape-font-specification:monospace"
-             id="tspan8023">Kart driver    # 000/20
+             id="tspan1293">Kart driver    # 000/20
 </tspan></tspan><tspan
            x="0"
            y="78.617555"
-           id="tspan8029"><tspan
+           id="tspan1299"><tspan
              style="font-family:monospace;-inkscape-font-specification:monospace"
-             id="tspan8027">Dinner         # 000/90</tspan></tspan></text>
+             id="tspan1297">Dinner         # 000/90</tspan></tspan></text>
       <text
          xml:space="preserve"
          transform="matrix(0.26458333,0,0,0.26458333,0.52916682,56.058332)"
          id="text28903-1"
-         style="font-size:46.6667px;line-height:0.95;font-family:Futura;-inkscape-font-specification:Futura;white-space:pre;shape-inside:url(#rect28905-4)"><tspan
+         style="font-size:45.3333px;line-height:0.95;font-family:Futura;-inkscape-font-specification:Futura;white-space:pre;shape-inside:url(#rect28905-4)"><tspan
            x="0"
-           y="34.289086"
-           id="tspan8033"><tspan
+           y="33.309351"
+           id="tspan1303"><tspan
              style="font-family:'Futura BdCn BT';-inkscape-font-specification:'Futura BdCn BT'"
-             id="tspan8031">Name Surname</tspan></tspan></text>
+             id="tspan1301">Name Surname</tspan></tspan></text>
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.70278px;line-height:0;font-family:Audiowide;-inkscape-font-specification:Audiowide;letter-spacing:-0.465667px;word-spacing:0px;fill:#b82159;fill-opacity:1;stroke:#1d050e;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"

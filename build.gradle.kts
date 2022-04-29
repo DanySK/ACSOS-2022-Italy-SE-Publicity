@@ -1,7 +1,8 @@
 import com.github.doyaaaaaken.kotlincsv.dsl.csvReader
+import com.lordcodes.turtle.shellRun
+import org.gradle.configurationcache.extensions.capitalized
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
-import kotlin.math.max
 
 buildscript {
     repositories {
@@ -9,6 +10,7 @@ buildscript {
     }
     dependencies {
         classpath("com.github.doyaaaaaken:kotlin-csv-jvm:1.2.0")
+        classpath("com.lordcodes.turtle:turtle:0.6.0")
     }
 }
 
@@ -55,8 +57,8 @@ data class Subscription(
             require(entry.size >= 11)
             if (entry[3].contains("online", ignoreCase = true)) return null
             val time = LocalDateTime.parse(entry[0], DateTimeFormatter.ofPattern("M/d/yyyy H:mm:ss"))
-            val email = entry[1]
-            val name = entry[2]
+            val email = entry[1].trim()
+            val name = entry[2].trim().split(Regex("\\s+")).map { it.capitalized() }.joinToString(" ")
             val follows = entry[4] + entry[6]
             val role: Role = when {
                 entry[5].isBlank() -> Role.UNKNOWN
@@ -133,37 +135,96 @@ object DinnerPriority : Comparator<Subscription> {
 
 }
 
-tasks.register("generateBadges") {
-    fun <X> List<X>.indexPadded(element: X): String {
-        val index = (indexOf(element) + 1).toString()
-        return index.padStart(3, '0')
+val generateBadges by tasks.registering {
+    fun <X> List<X>.indexPadded(element: X): String = indexOf(element).let {
+        if (it < 0) "---" else (it + 1).toString().padStart(3, ' ')
     }
+    val csvs = projectDir.walkTopDown().filter { it.extension == "csv" }.toList()
+    val destinationDir = File(buildDir, "badges")
+    inputs.files(csvs)
+    outputs.dir(destinationDir)
     doLast {
-        val csvs = projectDir.walkTopDown().filter { it.extension == "csv" }.toList()
         check(csvs.size == 1) { "There is not exactly one CSV file with data: $csvs" }
         val csv = csvs.first()
-        val rows: List<List<String>> = csvReader().readAll(csv)
+        val rows: List<List<String>> = csvReader() { charset = "UTF-8" }.readAll(csv)
         val contents = rows.drop(1)
         val inPresence = contents.map(Subscription::fromEntry).filterNotNull().reversed().distinctBy { it.name }
         val breakPriority = inPresence.sortedWith(CoffeeBreakPriority)
-        val busPriority = inPresence.sortedWith(BusPriority)
-        val kartPriority = inPresence.sortedWith(KartPriority)
-        val dinnerPriority = inPresence.sortedWith(DinnerPriority)
+        val participatesEvent = inPresence.filter { it.kart != Kart.NOPE }
+        val busPriority = participatesEvent.sortedWith(BusPriority)
+        val kartPriority = participatesEvent
+            .filter { it.kart in listOf(Kart.DRIVER, Kart.DRIVER_WITH_RESERVE) }
+            .sortedWith(KartPriority)
+        val dinnerPriority = inPresence.filter(Subscription::dinner).sortedWith(DinnerPriority)
         val badgeBase = file("badge-base.svg").readText()
-        val destinationDir = File(buildDir, "badges")
         destinationDir.mkdirs()
         inPresence.forEach { participant ->
             val destination = File(destinationDir, "${participant.name.replace(Regex("\\s"), "")}.svg")
-            destination.writeText(
-                badgeBase
-                    .replace("Name Surname", participant.name)
-                    .replace("ROLE", participant.role.toString())
-                    .replace(Regex("(Coffee\\s+break\\s+#\\s+)000"), "$1${breakPriority.indexPadded(participant)}")
-                    .replace(Regex("(Bus\\s+seat\\s+#\\s+)000"), "$1${busPriority.indexPadded(participant)}")
-                    .replace(Regex("(Kart driver\\s+#\\s+)000"), "$1${kartPriority.indexPadded(participant)}")
-                    .replace(Regex("(Dinner\\s+seat\\s+#\\s+)000"), "$1${dinnerPriority.indexPadded(participant)}")
-            )
+            val svg = badgeBase
+                .replace("Name Surname", participant.name)
+                .replace("ROLE", participant.role.toString())
+                .replace(Regex("(Coffee\\s+break\\s+#\\s+)000"), "$1${breakPriority.indexPadded(participant)}")
+                .replace(Regex("(Bus\\s+seat\\s+#\\s+)000"), "$1${busPriority.indexPadded(participant)}")
+                .replace(Regex("(Kart driver\\s+#\\s+)000"), "$1${kartPriority.indexPadded(participant)}")
+                .replace(Regex("(Dinner\\s+#\\s+)000"), "$1${dinnerPriority.indexPadded(participant)}")
+            destination.writeText(svg)
         }
+        File(buildDir, "emails.txt").writeText(inPresence.map { it.email }.joinToString("\n"))
+        fun List<Subscription>.markdownList() = mapIndexed { i, it -> "| ${i + 1}. ${it.name} <${it.email}>" }.joinToString("\n")
+        File(buildDir, "participants.md").writeText(
+            """
+            |# Coffee Break
+            ${breakPriority.markdownList()}
+            |
+            |# Bus
+            ${busPriority.markdownList()}
+            |
+            |# Kart drivers
+            ${kartPriority.markdownList()}
+            |
+            |# Dinner
+            ${dinnerPriority.markdownList()}
+            |
+            |# All entries
+            ${inPresence.map { "|${it.name}: " }}
+            """.trimMargin()
+        )
+    }
+}
+
+val standardizeBadges by tasks.registering {
+    dependsOn(generateBadges.get())
+    val badges = File(buildDir, "badges")
+    val outputs = File(buildDir, "standardSvgBadges")
+    inputs.dir(badges)
+    this.outputs.dir(outputs)
+    doLast {
+        outputs.mkdirs()
+        badges.walkTopDown().filter { it.extension == "svg" }.forEach { badge ->
+            val destination = File(outputs, badge.name)
+            shellRun {
+                command(
+                    "inkscape",
+                    listOf("--export-type=svg", "--export-filename=${destination.path}", "--export-plain-svg", badge.path)
+                )
+            }
+        }
+    }
+}
+
+tasks.register("printablePage") {
+    dependsOn(standardizeBadges.get())
+    val badges = File(buildDir, "standardSvgBadges")
+    inputs.dir(badges)
+    val destination = File(buildDir, "badges.html")
+    doLast {
+        val html = destination.bufferedWriter()
+        html.write("<html><head><meta charset=\"utf-8\"></head><body>")
+        badges.walkTopDown().filter { it.extension == "svg" }.forEach { badge ->
+            html.write(badge.readText())
+        }
+        html.write("</body></html>")
+        html.close()
     }
 }
 
