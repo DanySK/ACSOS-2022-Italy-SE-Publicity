@@ -1,8 +1,12 @@
 import com.github.doyaaaaaken.kotlincsv.dsl.csvReader
 import com.lordcodes.turtle.shellRun
+import kotlinx.coroutines.newFixedThreadPoolContext
 import org.gradle.configurationcache.extensions.capitalized
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
+import java.util.concurrent.Executors
+import java.util.concurrent.ForkJoinPool
+import kotlin.coroutines.CoroutineContext
 
 buildscript {
     repositories {
@@ -58,7 +62,10 @@ data class Subscription(
             if (entry[3].contains("online", ignoreCase = true)) return null
             val time = LocalDateTime.parse(entry[0], DateTimeFormatter.ofPattern("M/d/yyyy H:mm:ss"))
             val email = entry[1].trim()
-            val name = entry[2].trim().split(Regex("\\s+")).map { it.capitalized() }.joinToString(" ")
+            val name = entry[2].trim()
+                .toLowerCase()
+                .split(Regex("\\s+"))
+                .map { it.capitalized() }.joinToString(" ")
             val follows = entry[4] + entry[6]
             val role: Role = when {
                 entry[5].isBlank() -> Role.UNKNOWN
@@ -137,7 +144,7 @@ object DinnerPriority : Comparator<Subscription> {
 
 val generateBadges by tasks.registering {
     fun <X> List<X>.indexPadded(element: X): String = indexOf(element).let {
-        if (it < 0) "---" else (it + 1).toString().padStart(3, ' ')
+        if (it < 0) " NA" else (it + 1).toString().padStart(3, ' ')
     }
     val csvs = projectDir.walkTopDown().filter { it.extension == "csv" }.toList()
     val destinationDir = File(buildDir, "badges")
@@ -200,14 +207,20 @@ val standardizeBadges by tasks.registering {
     this.outputs.dir(outputs)
     doLast {
         outputs.mkdirs()
-        badges.walkTopDown().filter { it.extension == "svg" }.forEach { badge ->
-            val destination = File(outputs, badge.name)
-            shellRun {
-                command(
-                    "inkscape",
-                    listOf("--export-type=svg", "--export-filename=${destination.path}", "--export-plain-svg", badge.path)
-                )
+        with(Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors())) {
+            badges.walkTopDown().filter { it.extension == "svg" }.forEach { badge ->
+                val destination = File(outputs, badge.name)
+                submit {
+                    shellRun {
+                        command(
+                            "inkscape",
+                            listOf("--export-type=svg", "--export-filename=${destination.path}", "--export-plain-svg", badge.path)
+                        )
+                    }
+                }
             }
+            shutdown()
+            awaitTermination(10, TimeUnit.MINUTES)
         }
     }
 }
